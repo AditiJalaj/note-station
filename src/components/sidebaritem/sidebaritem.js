@@ -8,7 +8,7 @@ import {removeHTMLTags} from '../../helpers'
 
 const SidebarItem = () => {
     return ( <>
-        Sidebar item</> );
+        HELLO FROM THE SIDEBAR ITEM</> );
 }
  
 export default withStyles(styles)(SidebarItem);

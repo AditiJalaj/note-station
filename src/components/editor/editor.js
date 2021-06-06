@@ -1,13 +1,14 @@
 import {withStyles} from '@material-ui/core/styles'
 import styles from './editorstyles.js'
-import BorderColorIcon from '@material-ui/icons/BorderColor'
+import BorderColorIcon from '@material-ui/icons/BorderColor';
 import ReactQuill from 'react-quill'
 import {useState,useEffect} from 'react'
 // import debounce from '../../helpers'
 
 
+//classes is from styles
 
-const Editor = ({}) => {
+const Editor = ({classes}) => {
     const [title,setTitle]=useState('')
     const [text,setText]=useState('')
     const [id,setId]=useState('')
@@ -18,8 +19,9 @@ const Editor = ({}) => {
         let timeout = setTimeout(() => {
           console.log("updating db ", text);
         }, 1500);
-        
-        // this clean up function  in next line makes sure we update data in firebase only when user stops typing for 1.5 sec
+
+        // this clean up function 
+         //makes sure we update data in firebase only when user stops typing for 1.5 sec
         return () => clearTimeout(timeout);
       }, [text]);
 
@@ -28,7 +30,7 @@ const Editor = ({}) => {
         setText(val)
     }
     
-    return ( <div className="editorContainer">
+    return ( <div className={classes.editorContainer}>
         <ReactQuill value={text}
         onChange={updateText}
         ></ReactQuill>

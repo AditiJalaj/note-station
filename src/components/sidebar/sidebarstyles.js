@@ -5,7 +5,9 @@ const styles = theme => ({
       position: 'absolute',
       left: '0',
       width: '300px',
-      boxShadow: '0px 0px 2px black'
+      boxShadow: '0px 0px 2px black',
+      borderRadius:'10px',
+      border:'3px solid black'
     },
     newChatBtn: {
       borderRadius: '0px'
@@ -19,9 +21,9 @@ const styles = theme => ({
     newNoteBtn: {
       width: '100%',
       height: '35px',
-      borderBottom: '1px solid black',
-      borderRadius: '0px',
-      backgroundColor: '#29487d',
+      border:'1px solid black',
+      borderRadius: '10px',
+      backgroundColor: '#370f4d',
       color: 'white',
       '&:hover': {
         backgroundColor: '#a688ce'
@@ -33,25 +35,35 @@ const styles = theme => ({
       height: '100%',
       boxSizing: 'border-box',
       float: 'left',
-      overflowY: 'scroll',
-      overflowX: 'hidden'
+      overflowY: 'hidden',
+      overflowX: 'hidden',
+      paddingRight:'2px',
+      border:'3px solid black',
+      borderRadius:'10px',
+      backgroundColor:'#8268a3'
     },
     newNoteInput: {
-      width: '100%',
-      margin: '0px',
+      width: 'auto',
+      margin: '4px',
       height: '35px',
       outline: 'none',
-      border: 'none',
-      paddingLeft: '5px',
+      border: '1px solid black',
+      borderRadius:'10px',
+      paddingRight: '10px',
+      paddingLeft: '10px',
       '&:focus': {
         outline: '2px solid rgba(81, 203, 238, 1)'
       }
     },
     newNoteSubmitBtn: {
       width: '100%',
-      backgroundColor: '#28787c',
-      borderRadius: '0px',
-      color: 'white'
+      backgroundColor: '#40d6a9',
+      borderRadius: '10px',
+      border:'1px solid black',
+      color: 'white',
+      '&:hover':{
+          backgroundColor:'#44b8db'
+      }
     }
   });
   

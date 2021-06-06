@@ -8,7 +8,9 @@ import Sidebar from './components/sidebar/sidebar';
  
 function App() {
 
-  const [notes,setNotes]=useState('')
+  const [notes,setNotes]=useState([])
+  const [selectedNote,setSelectedNote]=useState(null)
+  const [selectedNoteIndex,setSelectedNoteIndex]=useState(null)
 
   useEffect(()=>{
     db.collection('notes')
@@ -21,7 +23,6 @@ function App() {
         //doc.data() is an object containing title, body and timestamp
        //...doc.data() will pass all key value pairs from that object
       })
-
       setNotes(documents)
     })
   },[])
@@ -29,12 +30,15 @@ function App() {
 
 
   return (
+    <>
+    <nav className='title'>NOTE-STATION</nav>
+    
     <div className='app-container'>
-    <Sidebar/>
+    
+    <Sidebar notes={notes}  selectedNoteIndex={selectedNoteIndex}/>
     <Editor/>
-    
-    
     </div>
+    </>
   );
 }
 

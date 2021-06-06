@@ -2,35 +2,54 @@ html, body {
   height: 100%;
   width: 100%;
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  margin:0;
+  padding: 5px;
   overflow: hidden;
+  color: black;
 }
 #root {
   height: 100%;
   box-sizing: border-box;
-  background-color: rgb(251, 244, 252);
+}
+.title{
+  text-align: center;
+ background-color: #341759;
+ padding:2px;
+ margin:2px;
+ margin-top:0;
+ width:100%;
+ top:0;
+ font-weight: bolder;
+ font-size: larger;
+ color: white;
+ border-radius: 10px;
+
 }
 .app-container {
-  height: 90%;
-  box-sizing: border-box;
+  height: 100%;
+  box-sizing:border-box;
 }
 .quill {
   height: 100%;
   box-sizing: border-box;
   width: calc(100% - 300px);
   float: left;
+  border-radius: 10px;
+  border:3px solid rgb(34, 25, 68);
+  background-color: rgb(228, 205, 231);
 }
 .ql-container {
   box-sizing: border-box;
   height: calc(100% - 42px);
   overflow-y: scroll;
+ 
 }
 .ql-editor {
   cursor: text;
+  color: black;
 }
 .MuiListItem-root.Mui-selected {
-  background-color: #d4d8e8 !important;
+  background-color: #acb4d4 !important;
 }
 .no-note-selected {
   font-size: 48px;
