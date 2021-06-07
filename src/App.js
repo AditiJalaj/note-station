@@ -12,9 +12,23 @@ function App() {
   const [selectedNote,setSelectedNote]=useState(null)
   const [selectedNoteIndex,setSelectedNoteIndex]=useState(null)
 
+  //selecting note by passing the below to sidebaritem via sidebar comp
+
+
+
+  const selectNote=(index,notes)=>{
+    setSelectedNoteIndex(index)
+    setSelectedNote(notes)
+    console.log('----------------------')
+    console.log(`note set to ${selectedNote}`)
+    console.log(`NOTE INDEX SET TO ${selectedNoteIndex}`)
+  }
+
+
+
+//to get notes from firebase after component pushed to DOM
   useEffect(()=>{
     db.collection('notes')
-
     //everytime there's a change in collection , run the function inside onSnapshot
     .onSnapshot((update)=>{
       let documents=[]
@@ -28,15 +42,22 @@ function App() {
   },[])
   console.log('notes ', notes)
 
-
+ 
   return (
     <>
     <nav className='title'>NOTE-STATION</nav>
-    
     <div className='app-container'>
     
-    <Sidebar notes={notes}  selectedNoteIndex={selectedNoteIndex}/>
-    <Editor/>
+    <Sidebar 
+    notes={notes} 
+    selectNote={selectNote}
+    selectedNoteIndex={selectedNoteIndex}/>
+    
+
+    { selectedNote && <Editor
+      selectedNote={selectedNote}
+    selectedNoteIndex={selectedNoteIndex} />}
+
     </div>
     </>
   );

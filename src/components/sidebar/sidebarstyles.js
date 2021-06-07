@@ -23,10 +23,12 @@ const styles = theme => ({
       height: '35px',
       border:'1px solid black',
       borderRadius: '10px',
-      backgroundColor: '#370f4d',
+      backgroundColor: '#67a5f5',
+      marginBottom:'10px',
       color: 'white',
+      fontWeight:'800',
       '&:hover': {
-        backgroundColor: '#a688ce'
+        backgroundColor: '#4a79b5'
       }
     },
     sidebarContainer: {
@@ -59,10 +61,12 @@ const styles = theme => ({
       width: '100%',
       backgroundColor: '#40d6a9',
       borderRadius: '10px',
+      marginBottom:'10px',
       border:'1px solid black',
+      fontWeight:'800',
       color: 'white',
       '&:hover':{
-          backgroundColor:'#44b8db'
+          backgroundColor:'#51bd61'
       }
     }
   });

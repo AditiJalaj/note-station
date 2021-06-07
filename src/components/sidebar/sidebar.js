@@ -4,8 +4,9 @@ import List from '@material-ui/icons/List'
 import {Divider, Button} from '@material-ui/core'
 import SidebarItem from '../sidebaritem/sidebaritem'
 import {useState} from 'react'
+import {db} from '../../config'
 
-const Sidebar = ({notes,classes,selectedNoteIndex}) => {
+const Sidebar = ({notes,classes,selectNote,selectedNoteIndex}) => {
 
     const [addNote,setAddNote]=useState(false)
     const [noteTitle,setNoteTitle]=useState(null)
@@ -16,14 +17,12 @@ const Sidebar = ({notes,classes,selectedNoteIndex}) => {
     }
     const submitNoteButtonClicked=()=>{
         console.log(addNote, noteTitle)
+        
+        //add note to collection
+        // db.collection('notes').add({title:noteTitle,body:noteText,id:index}).
+        // then(()=>{alert(`Note ${noteTitle} added`)})
     }
 
-    const selectNote=()=>{
-        console.log('SELECT NOTE')
-    }
-    const  deleteNote=()=>{
-        console.log(deleteNote)
-    }
     return ( 
         <div className={classes.sidebarContainer}>
         <Button 
@@ -46,24 +45,28 @@ const Sidebar = ({notes,classes,selectedNoteIndex}) => {
         onClick={submitNoteButtonClicked}>SUBMIT NOTE</Button>}
         
 
-        <List>
-           
-        {notes?.map((n)=>{
-            
+        {notes.map((n)=>{ 
+           return (
             <div key={n.id}>
+
             <SidebarItem
             index={n.id}
-            note={n.body}
-            selectedNoteIndex={selectedNoteIndex}
+            noteText={n.body}
+            noteTitle={n.title}
             selectNote={selectNote}
-            deleteNote={deleteNote}
+            selectedNoteIndex={selectedNoteIndex}
             >
             </SidebarItem>
+    
+            
             <Divider></Divider>
             </div>
+           
+            )
+            
         })}
         
-        </List>
+       
         </div>
       );
 }

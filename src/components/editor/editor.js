@@ -8,13 +8,21 @@ import {useState,useEffect} from 'react'
 
 //classes is from styles
 
-const Editor = ({classes}) => {
+const Editor = ({classes,selectedNoteIndex,selectedNote}) => {
+    
     const [title,setTitle]=useState('')
     const [text,setText]=useState('')
     const [id,setId]=useState('')
 
- 
 
+    //below
+    useEffect(()=>
+    {
+        
+    },[])
+
+
+    //debounce logic in useEffect 
     useEffect(() => {
         let timeout = setTimeout(() => {
           console.log("updating db ", text);
