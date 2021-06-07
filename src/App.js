@@ -13,9 +13,7 @@ function App() {
   const [selectedNoteIndex,setSelectedNoteIndex]=useState(null)
 
   //selecting note by passing the below to sidebaritem via sidebar comp
-
-
-
+//console showing the note and index set to prev clicked note
   const selectNote=(index,notes)=>{
     setSelectedNoteIndex(index)
     setSelectedNote(notes)
