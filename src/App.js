@@ -17,10 +17,9 @@ function App() {
   const selectNote=(index,notes)=>{
     setSelectedNoteIndex(index)
     setSelectedNote(notes)
-   
   }
 
-
+console.log('selected notes is', selectedNote)
 //to get notes from firebase after component pushed to DOM
   useEffect(()=>{
     db.collection('notes')

@@ -51,8 +51,7 @@ const Sidebar = ({notes,classes,selectNote,selectedNoteIndex}) => {
 
             <SidebarItem
             index={n.id}
-            noteText={n.body}
-            noteTitle={n.title}
+            notes={n}
             selectNote={selectNote}
             selectedNoteIndex={selectedNoteIndex}
             >

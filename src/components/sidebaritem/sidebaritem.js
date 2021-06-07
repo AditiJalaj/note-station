@@ -5,13 +5,13 @@ import ListItemText from '@material-ui/core/ListItemText'
 import DeleteIcon from '@material-ui/icons/Delete'
 import {removeHTMLTags} from '../../helpers'
 import {db} from '../../config'
-import {useEffect, useState} from 'react'
 
-const SidebarItem = ({classes,index,noteText,noteTitle,selectNote,selectedNoteIndex}) => {
 
-   
+const SidebarItem = ({classes,index,notes,selectNote,selectedNoteIndex}) => {
+
     const deleteNote=()=>{
-       if(window.confirm(`Are you sure you want to delete note ${noteTitle}?`))
+        
+       if(window.confirm(`Are you sure you want to delete note ${notes.title}?`))
        {
         db.collection('notes').doc(index).delete().
         then(()=>{
@@ -22,7 +22,7 @@ const SidebarItem = ({classes,index,noteText,noteTitle,selectNote,selectedNoteIn
     
     return ( <div key={index} 
         onClick={()=>{
-        selectNote(index,noteText)}}
+        selectNote(index,notes)}}
         >
         <ListItem  
         className={classes.listItem}
@@ -33,8 +33,8 @@ const SidebarItem = ({classes,index,noteText,noteTitle,selectNote,selectedNoteIn
         <div  className={classes.textSection}>
 
         <ListItemText
-        primary={noteTitle} 
-        secondary={removeHTMLTags(noteText?.substring(0,30)+'...')}>
+        primary={notes.title} 
+        secondary={removeHTMLTags(notes.body?.substring(0,30)+'...')}>
         </ListItemText>
         </div>
 

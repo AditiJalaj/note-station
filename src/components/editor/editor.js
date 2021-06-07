@@ -14,23 +14,31 @@ const Editor = ({classes,selectedNoteIndex,selectedNote}) => {
     const [text,setText]=useState('')
     const [id,setId]=useState('')
 
-
-    //below
+    const noteUpdate=(i,noteObj)=>{
+        console.log(i,noteObj)
+    }
+    //below to mount editor component for diff selected notes
     useEffect(()=>
     {
-        //Uncaught Error: You are passing
-        // the `delta` object from the `onChange` event back as `value`. You most probably want `editor.getContents()`
-         setText(selectedNote.text)
-        
-         setTitle(selectedNote.title)
-         setId(selectedNoteIndex)
-    },[])
+        console.log('selected note text is',selectedNote.text)
+        if(selectedNote.title!==undefined && selectedNote.text!==undefined){
+            setText(selectedNote.text)
+            setTitle(selectedNote.title)
+        }
+        setId(selectedNoteIndex)
+         
+    },[selectedNoteIndex])
 
+    //console.log(`selected note outside id is ${selectedNoteIndex}`)
 
     //debounce logic in useEffect 
     useEffect(() => {
         let timeout = setTimeout(() => {
-          console.log("updating db ", text);
+          //console.log("updating db ", text);
+          noteUpdate(id,{
+              title:title,
+              text:text
+          })
         }, 1500);
 
         // this clean up function 
