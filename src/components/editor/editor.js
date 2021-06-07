@@ -27,7 +27,7 @@ const Editor = ({classes,selectedNoteIndex,selectedNote}) => {
         }
         setId(selectedNoteIndex)
          
-    },[selectedNoteIndex])
+    },[])
 
     //console.log(`selected note outside id is ${selectedNoteIndex}`)
 
