@@ -18,7 +18,12 @@ const Editor = ({classes,selectedNoteIndex,selectedNote}) => {
     //below
     useEffect(()=>
     {
+        //Uncaught Error: You are passing
+        // the `delta` object from the `onChange` event back as `value`. You most probably want `editor.getContents()`
+         setText(selectedNote.text)
         
+         setTitle(selectedNote.title)
+         setId(selectedNoteIndex)
     },[])
 
 

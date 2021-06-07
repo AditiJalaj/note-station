@@ -17,11 +17,8 @@ function App() {
   const selectNote=(index,notes)=>{
     setSelectedNoteIndex(index)
     setSelectedNote(notes)
-    console.log('----------------------')
-    console.log(`note set to ${selectedNote}`)
-    console.log(`NOTE INDEX SET TO ${selectedNoteIndex}`)
+   
   }
-
 
 
 //to get notes from firebase after component pushed to DOM
