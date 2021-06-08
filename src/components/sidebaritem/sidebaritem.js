@@ -10,7 +10,7 @@ import {db} from '../../config'
 const SidebarItem = ({classes,index,notes,selectNote,selectedNoteIndex}) => {
 
     const deleteNote=()=>{
-        
+
        if(window.confirm(`Are you sure you want to delete note ${notes.title}?`))
        {
         db.collection('notes').doc(index).delete().
@@ -48,4 +48,3 @@ const SidebarItem = ({classes,index,notes,selectNote,selectedNoteIndex}) => {
 }
  
 export default withStyles(styles)(SidebarItem);
-//

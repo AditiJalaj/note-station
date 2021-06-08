@@ -12,9 +12,9 @@ const Editor = ({classes,selectedNoteIndex,selectedNote}) => {
     
     const [title,setTitle]=useState('')
     const [text,setText]=useState('')
-    const [id,setId]=useState('')
+    const [id,setId]=useState(selectedNote.id)
 
-    //below to mount editor component for diff selected notes
+    // REDUNDANT --> below to mount editor component for diff selected notes
     // useEffect(()=>
     // {
     //     console.log('---------------')
@@ -49,9 +49,9 @@ const Editor = ({classes,selectedNoteIndex,selectedNote}) => {
 
     //debounce logic in useEffect 
     useEffect(() => {
+
+      //implementing note update here
         let timeout = setTimeout(() => {
-          
-          //implementing note update here
           db.collection('notes').
           doc(id).
            update({
@@ -59,12 +59,17 @@ const Editor = ({classes,selectedNoteIndex,selectedNote}) => {
             body:text,
             timestamp:createdAt
         })
+       }, 1500);
 
-        }, 1500);
+       /* entire useEffect will run whenever there's a change in text
+          first it'll run clean-up function   ->  () => clearTimeout(timeout);   
+            If there was a timeout which didn't run yet(because 1.5 sec),  it'll be cleared.
+       
+        Then the code above return statement will be executed creating a new timeout
+        At every button click we're just saying "clear the timeout from previous effect, run this new one instead"
+        */
 
-         //this clean up function 
-         //makes sure we update data in firebase only when user stops typing for 1.5 sec
-        return () => clearTimeout(timeout);
+       return () => clearTimeout(timeout);
       }, [text]);
 
 

@@ -37,7 +37,7 @@ const styles = theme => ({
       height: '100%',
       boxSizing: 'border-box',
       float: 'left',
-      overflowY: 'hidden',
+      overflowY: 'auto',
       overflowX: 'hidden',
       paddingRight:'2px',
       border:'3px solid black',
