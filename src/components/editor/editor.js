@@ -14,23 +14,6 @@ const Editor = ({classes,selectedNoteIndex,selectedNote}) => {
     const [text,setText]=useState('')
     const [id,setId]=useState('')
 
-
-    const noteUpdate=(i,noteObj)=>{
-
-        console.log('text inside update is ',noteObj.text) 
-        //update to firebase , ERROR- Unsupported field value: 
-        //undefined (found in field body in document notes/PpJPo8Rk9bJRbfWs24OC)
-
-        
-        db.collection('notes').
-        doc(i).
-        update({
-            title:noteObj.title,
-            body:noteObj.text,
-            timestamp:createdAt
-        })
-    }
-
     //below to mount editor component for diff selected notes
     // useEffect(()=>
     // {
@@ -53,7 +36,7 @@ const Editor = ({classes,selectedNoteIndex,selectedNote}) => {
         //setId(selectedNoteIndex) will also be same
  },[]) 
        
- //below is for changing editor for selected note
+ //below is for changing the editor for selected note
  useEffect(()=>{
     if(selectedNote.id!==id)
     {
@@ -67,8 +50,15 @@ const Editor = ({classes,selectedNoteIndex,selectedNote}) => {
     //debounce logic in useEffect 
     useEffect(() => {
         let timeout = setTimeout(() => {
-          //console.log("updating db ", text);
-          noteUpdate(id,{title:title,body:text})
+          
+          //implementing note update here
+          db.collection('notes').
+          doc(id).
+           update({
+            title:title,
+            body:text,
+            timestamp:createdAt
+        })
 
         }, 1500);
 
