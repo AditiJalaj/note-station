@@ -14,9 +14,12 @@ function App() {
 
   //selecting note by passing the below to sidebaritem via sidebar comp
 //console showing the note and index set to prev clicked note
-  const selectNote=(index,notes)=>{
+  const selectNote=(index,note)=>{
     setSelectedNoteIndex(index)
-    setSelectedNote(notes)
+    setSelectedNote(note)
+    console.log('invoked selectNote is',selectedNote)
+
+    //{timestamp: t, body: "<h2><em>test body</em></h2>", title: "2nd", id: "PpJPo8Rk9bJRbfWs24OC"}
   }
 
 console.log('selected notes is', selectedNote)
@@ -49,6 +52,7 @@ console.log('selected notes is', selectedNote)
     
 
     { selectedNote && <Editor
+      notes={notes}
       selectedNote={selectedNote}
     selectedNoteIndex={selectedNoteIndex} />}
 

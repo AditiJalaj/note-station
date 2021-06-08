@@ -14,5 +14,5 @@ var firebaseConfig = {
   firebase.initializeApp(firebaseConfig)
 
 const db=firebase.firestore()
-
-export {db}
+const createdAt=firebase.firestore.FieldValue.serverTimestamp()
+export {db,createdAt}
