@@ -9,9 +9,9 @@ import {db,createdAt} from '../../config'
 //classes is from styles
 
 const Editor = ({classes,selectedNoteIndex,selectedNote}) => {
-    
-    const [title,setTitle]=useState('')
-    const [text,setText]=useState('')
+
+    const [title,setTitle]=useState(selectedNote.title)
+    const [text,setText]=useState(selectedNote.text)
     const [id,setId]=useState(selectedNote.id)
 
     // REDUNDANT --> below to mount editor component for diff selected notes

@@ -7,7 +7,7 @@ import {removeHTMLTags} from '../../helpers'
 import {db} from '../../config'
 
 
-const SidebarItem = ({classes,index,notes,selectNote,selectedNoteIndex}) => {
+const SidebarItem = ({classes,index,notes,selectNote,selectedNote,setSelectedNote,selectedNoteIndex,setSelectedNoteIndex}) => {
 
     const deleteNote=()=>{
 
@@ -15,6 +15,14 @@ const SidebarItem = ({classes,index,notes,selectNote,selectedNoteIndex}) => {
        {
         db.collection('notes').doc(index).delete().
         then(()=>{
+            //so that on delete the editor of this note does not show- it becomes null
+                console.log("---------------------------")
+                console.log('index was same as selectd note id')
+                setSelectedNoteIndex(null)
+                 setSelectedNote(null)
+            
+        })
+        .then(()=>{
             console.log("DELETED")
         })
        }

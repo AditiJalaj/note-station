@@ -51,6 +51,9 @@ console.log('selected notes is', selectedNote)
     <Sidebar 
     notes={notes} 
     selectNote={selectNote}
+    selectedNote={selectedNote}
+    setSelectedNote={setSelectedNote}
+    setSelectedNoteIndex={setSelectedNoteIndex}
     selectedNoteIndex={selectedNoteIndex}/>
     
 

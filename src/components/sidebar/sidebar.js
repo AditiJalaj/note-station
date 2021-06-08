@@ -6,7 +6,7 @@ import SidebarItem from '../sidebaritem/sidebaritem'
 import {useState} from 'react'
 import {db,createdAt} from '../../config'
 
-const Sidebar = ({notes,classes,selectNote,selectedNoteIndex}) => {
+const Sidebar = ({notes,classes,selectNote,selectedNote,setSelectedNoteIndex,setSelectedNote,selectedNoteIndex}) => {
 
     const [addNote,setAddNote]=useState(false)
     const [noteTitle,setNoteTitle]=useState(null)
@@ -24,13 +24,23 @@ const Sidebar = ({notes,classes,selectNote,selectedNoteIndex}) => {
                 timestamp:createdAt
             })
             .then(()=>{
+                alert(`Added : ${noteTitle} `) 
+            })
+            .then(()=>{
                 setAddNote(false)
                 setNoteTitle(null)
             })
-            .then(()=>{
-                alert(`Added : ${noteTitle} `)   
-            })
             
+
+            //const newID=just added's note Id
+            //grabbing the id of just added note
+           // const newNoteIndex=notes.indexOf(notes.filter((note)=>{note.id===newID})[0])
+
+            //updating the currently selected note w the just added note
+            //setSelectedNote(notes[newNoteIndex])
+
+          // console.log('should show new note ',selectedNote)
+
     }
 
     return ( 
@@ -66,6 +76,9 @@ const Sidebar = ({notes,classes,selectNote,selectedNoteIndex}) => {
             notes={n}
             selectNote={selectNote}
             selectedNoteIndex={selectedNoteIndex}
+            setSelectedNoteIndex={setSelectedNoteIndex}
+            setSelectedNote={setSelectedNote}
+            selectedNote={selectedNote}
             >
             </SidebarItem>
 
