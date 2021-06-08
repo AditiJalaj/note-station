@@ -10,19 +10,22 @@ const styles = theme => ({
     titleInput: {
       height: '50px',
       boxSizing: 'border-box',
-      border: 'none',
+      border: '1px solid black',
       padding: '5px',
       fontSize: '24px',
       width: 'calc(100% - 300px)',
-      backgroundColor: '#60297d',
+      backgroundColor: '#48a8db',
       color: 'white',
       fontSize:'large',
-      paddingLeft: '50px'
+      paddingLeft: '50px',
+      borderRadius:'10px',
+      fontWeight:'bolder',
+      
     },
     editIcon: {
       position: 'absolute',
-      left: '310px',
-      top: '12px',
+      left: '320px',
+      top:'7.8%',
       color: 'white',
       width: '10',
       height: '10'

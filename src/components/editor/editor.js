@@ -70,18 +70,34 @@ const Editor = ({classes,selectedNoteIndex,selectedNote}) => {
         */
 
        return () => clearTimeout(timeout);
-      }, [text]);
+
+       //dependencies text and title for any update in text or title
+      }, [text,title]);
 
 
     function updateText(val){
         setText(val)
     }
     
-    return ( <div className={classes.editorContainer}>
-        <ReactQuill value={text}
+    return ( 
+     
+       <div className={classes.editorContainer}>
+      
+        
+        <input 
+        className={classes.titleInput}
+        placeholder='Update Title...'
+        value={title}
+        onChange={(e)=>{setTitle(e.target.value)}}
+        />
+        <BorderColorIcon className={classes.editIcon}>
+        </BorderColorIcon>
+       
+      <ReactQuill value={text}
         onChange={updateText}
         ></ReactQuill>
-        </div> );
+        </div> 
+        );
 }
  
 export default withStyles(styles)(Editor);
