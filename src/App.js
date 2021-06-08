@@ -1,6 +1,6 @@
 
 import './App.css';
-import {db,createdAt} from './config'
+import {db} from './config'
 import {useEffect,useState} from 'react'
 import Editor from './components/editor/editor'
 import Sidebar from './components/sidebar/sidebar';
@@ -27,6 +27,7 @@ console.log('selected notes is', selectedNote)
 //to get notes from firebase after component pushed to DOM
   useEffect(()=>{
     db.collection('notes')
+    .orderBy('timestamp','desc')
     //everytime there's a change in collection , run the function inside onSnapshot
     .onSnapshot((update)=>{
       let documents=[]
