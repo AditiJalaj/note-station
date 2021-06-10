@@ -7,7 +7,7 @@ Features->
 2. Add new notes to the database in realtime
 3. Delete notes
 4. Update notes 
-5. Editor supports different text features like Bold, Italic, underlined, lists, etc.
+5. Editor supports different text features like Bold, Italic, underlined, ordered/unordered lists, etc .
 
 Tech Stack- ReactJS , React Quill Editor, Material UI (icons and styles) , Firebase Firestore database.
 
