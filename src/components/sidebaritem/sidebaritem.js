@@ -17,7 +17,7 @@ const SidebarItem = ({classes,index,notes,selectNote,selectedNote,setSelectedNot
         then(()=>{
             //so that on delete the editor of this note does not show- it becomes null
                 console.log("---------------------------")
-                console.log('index was same as selectd note id')
+                console.log('index inside deleteNote ',index)
                 setSelectedNoteIndex(null)
                  setSelectedNote(null)
             
@@ -32,7 +32,7 @@ const SidebarItem = ({classes,index,notes,selectNote,selectedNote,setSelectedNot
         onClick={()=>{
         selectNote(index,notes)}}
         >
-        <ListItem  
+         <ListItem  
         className={classes.listItem}
         selected ={selectedNoteIndex===index}
         alignItems='flex-start'>

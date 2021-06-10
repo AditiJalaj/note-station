@@ -10,43 +10,19 @@ import {db,createdAt} from '../../config'
 
 const Editor = ({classes,selectedNoteIndex,selectedNote}) => {
 
-    const [title,setTitle]=useState(selectedNote.title)
-    const [text,setText]=useState(selectedNote.text)
-    const [id,setId]=useState(selectedNote.id)
-
-    // REDUNDANT --> below to mount editor component for diff selected notes
-    // useEffect(()=>
-    // {
-    //     console.log('---------------')
-    //     console.log('selected useffect note text is',selectedNote.text)  //undefined
-
-    //     if(selectedNote.title!==undefined && selectedNote.text!==undefined){
-    //         setText(selectedNote.text)
-    //         setTitle(selectedNote.title)
-    //     }
-    //     setId(selectedNoteIndex)
-    // },[])
+    const [title,setTitle]=useState('')
+    const [text,setText]=useState('')
+    const [id,setId]=useState('')
 
 
-    //below is on editor mount 
+    //below is on editor mount and change in selected note
     useEffect(()=>{
         setText(selectedNote.body)
         setTitle(selectedNote.title)
         setId(selectedNote.id)
         //setId(selectedNoteIndex) will also be same
- },[]) 
+ },[selectedNote]) 
        
- //below is for changing the editor for selected note
- useEffect(()=>{
-    if(selectedNote.id!==id)
-    {
-      setText(selectedNote.body)
-      setTitle(selectedNote.title)
-      setId(selectedNote.id)
-    }
-  })
-
-
     //debounce logic in useEffect 
     useEffect(() => {
 
@@ -61,7 +37,7 @@ const Editor = ({classes,selectedNoteIndex,selectedNote}) => {
         })
        }, 1500);
 
-       /* entire useEffect will run whenever there's a change in text
+       /* entire useEffect will run whenever there's a change in text or title
           first it'll run clean-up function   ->  () => clearTimeout(timeout);   
             If there was a timeout which didn't run yet(because 1.5 sec),  it'll be cleared.
        
